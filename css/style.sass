@@ -1,0 +1,217 @@
+$violet: #990066
+$pink: #e90049
+$white: #fff
+$black: #000
+
+// reset
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  font-size: 100%
+  font: inherit
+  vertical-align: baseline
+
+img
+  max-width: 100%
+  height: auto
+.nob-facts-container ::-moz-selection
+  background: $violet
+  color: $white
+.nob-facts-container ::selection
+  background: $violet
+  color: $white
+
+.nob-facts-container
+  position: relative
+#nob-facts-slider
+  position: relative
+  overflow: hidden
+  width: 1100px
+  height: 780px
+  margin: 0 auto
+#nob-facts-slider
+  .nob-facts-list
+    position: relative
+    margin: 0
+    padding: 0
+    list-style: none
+    &__item
+      position: relative
+      display: block
+      float: left
+      margin: 0
+      padding: 0
+      width: 1100px
+      height: 780px
+.nob-facts-control
+  position: absolute
+  top: 44%
+  z-index: 999
+  display: block
+  width: 30px
+  height: 100px
+  text-decoration: none
+  font-weight: 600
+  cursor: pointer
+.next
+  right: 50px
+  background: url(../img/next.png) no-repeat
+  background-size: contain
+.prev
+  left: 50px
+  background: url(../img/back.png) no-repeat
+  background-size: contain
+
+.nob-facts-intro
+  background: $violet
+  box-sizing: border-box
+  &__content
+    color: $white
+    font-family: 'rob-bold'
+    text-transform: uppercase
+    text-align: center
+    padding: 35px 80px
+  .nob-title:first-child
+    font-size: 58px
+    position: relative
+    span
+      background: $violet
+      padding: 0 10px
+      position: relative
+    &::before
+      content: ''
+      position: absolute
+      width: 65%
+      border-top: 1px solid $white
+      top: 30px
+      left: 17%
+  .nob-title:nth-child(2)
+    font-family: 'rob-light'
+    font-size: 90px
+    line-height: 90px
+    position: relative
+    &::after
+      content: ''
+      position: absolute
+      width: 135px
+      border-top: 1px solid $white
+      bottom: -7px
+      left: 43%
+  .nob-text
+    padding: 30px 0
+    font-size: 21px
+  .nob-img
+    width: 620px
+    margin: 10px auto 0
+
+.nob-facts-item
+  &__content
+    padding: 85px 155px
+    height: 780px
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    > div
+      display: flex
+      justify-content: space-between
+  &-odd
+    background-color: $pink
+  &-even
+    background-color: $violet
+
+.nob-facts-item__card
+  perspective: 1000px
+  width: 370px
+  height: 285px
+  position: relative
+  &:hover .card-flipper, &.hover .card-flipper
+    transform: rotateY(180deg)
+  .card-flipper
+    transition: 0.6s
+    transform-style: preserve-3d
+    position: relative
+    z-index: -1
+    cursor: pointer
+  .card-front, .card-back
+    width: 100%
+    height: 285px
+    backface-visibility: hidden
+    position: absolute
+    top: 0
+    left: 0
+  .card-front
+    z-index: 2
+    transform: rotateY(0deg)
+  .card-back
+    transform: rotateY(180deg)
+    background: $white
+    &__content
+      padding: 55px 28px 35px
+      text-align: center
+      position: relative
+      font-size: 16px
+      font-family: "rob-reg"
+      line-height: 17px
+      height: 285px
+      overflow: hidden
+      box-sizing: border-box
+      &::before, &::after
+        position: absolute
+        content: ''
+        border-top: 1px solid $black
+        width: 95px
+      &::before
+        top: 30px
+        left: 140px
+      &::after
+        bottom: 20px
+        left: 145px
+  .card-number
+    width: 55px
+    height: 55px
+    color: $white
+    font-size: 18px
+    font-family: 'rob-bold'
+    background: url(../img/number.png) no-repeat
+    background-size: contain
+    display: flex
+    align-items: center
+    justify-content: center
+    position: absolute
+    top: -10px
+    left: -15px
+
+
+@media only screen and (max-width: 768px)
+  .nob-facts-intro
+    .nob-text
+      font-size: 25px
+    .nob-img
+      width: 600px
+      height: 400px
+  .prev
+    left: 20px
+  .next
+    right: 20px
+  .nob-facts-item__content
+    padding: 60px 80px
+    justify-content: center
+    > div
+      margin: 30px 0
+      justify-content: space-around
+  .nob-facts-item__card
+    width: 280px
+    height: 280px
+  .nob-facts-item__card
+    .card-front
+      height: 220px
+    .card-back
+      height: 280px
+      &__content
+        height: 280px
+        padding: 42px 5px 20px
+        font-size: 14px
+        &::after, &::before
+          left: 90px
